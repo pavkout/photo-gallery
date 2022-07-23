@@ -10,6 +10,7 @@ const GlobalStyles = createGlobalStyle`
   }
   #__next{
     margin:0 auto;
+    height: 100vh;
   }
  `;
 
