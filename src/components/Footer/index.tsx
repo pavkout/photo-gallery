@@ -1,18 +1,22 @@
 import styled from 'styled-components';
 
 const StyledFooter = styled.footer`
-  height: 80px;
+  height: 120px;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  background-color: #f9f9f9;
+  background: linear-gradient(45deg, #ff0081, #6827b0);
+  color: #fff;
 `;
 
 const Footer = () => {
   return (
     <StyledFooter>
-      <span>© {new Date().getFullYear()} League. All rights reserved.</span>
+      <span>
+        © {new Date().getFullYear()} League, Inc. All rights reserved. Design By
+        - <b>Pavlos Koutoglou</b>
+      </span>
     </StyledFooter>
   );
 };
