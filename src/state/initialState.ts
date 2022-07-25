@@ -6,4 +6,5 @@ export const initialState: IState = {
   isRandomSize: false,
   gutters: 15,
   columnWidth: 150,
+  searchingValue: '',
 };

@@ -7,6 +7,7 @@ import {
   CHANGE_GUTTERS,
   CHANGE_COLUMN_WIDTH,
   CHANGE_RANDOM_SIZE,
+  CHANGE_SEARCHING_VALUE,
 } from './types';
 
 export const changeImageType = () => ({
@@ -38,4 +39,9 @@ export const changeGutters = (gutters: number | string) => ({
 export const changeColumnWidth = (columnWidth: number | string) => ({
   type: CHANGE_COLUMN_WIDTH,
   payload: columnWidth,
+});
+
+export const changeSearchingValue = (value: string) => ({
+  type: CHANGE_SEARCHING_VALUE,
+  payload: value,
 });

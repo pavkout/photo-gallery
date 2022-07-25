@@ -9,6 +9,7 @@ import {
   CHANGE_GUTTERS,
   CHANGE_COLUMN_WIDTH,
   CHANGE_RANDOM_SIZE,
+  CHANGE_SEARCHING_VALUE,
 } from './types';
 
 const Reducer = (state: IState = initialState, action: ActionType): any => {
@@ -41,6 +42,7 @@ const Reducer = (state: IState = initialState, action: ActionType): any => {
       return {
         ...state,
         ...(action.payload as Object),
+        searchingValue: '',
       };
     case OPEN_SETTINGS:
       return {
@@ -51,6 +53,11 @@ const Reducer = (state: IState = initialState, action: ActionType): any => {
       return {
         ...state,
         isSettingsOpen: false,
+      };
+    case CHANGE_SEARCHING_VALUE:
+      return {
+        ...state,
+        searchingValue: action.payload,
       };
     default:
       return state;
