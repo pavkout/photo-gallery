@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 // Import components
 import ImageGenerator from '../ImageGenerator';
+import StaticImage from '../StaticImage';
 
 // Import types
 import { Photo } from '../../types';
@@ -15,6 +16,12 @@ import { generateRandom } from '../../utils/random';
 import { useAppContext } from '../../state/store';
 
 const StyledImageGenerator = styled(ImageGenerator)`
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+`;
+
+const StyledStaticImage = styled(StaticImage)`
   border-radius: 10px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
@@ -37,14 +44,14 @@ const PhotoImage = ({ photo: { thumbnailUrl, title } }: Props) => {
         title={title}
         width={columnWidth}
         height={isRandomSize ? generateRandom(100, 500, 40) : columnWidth}
-        random
+        random={true}
       />
     );
   }
 
   return (
-    <img
-      alt={thumbnailUrl}
+    <StyledStaticImage
+      title={title}
       src={thumbnailUrl}
       width={columnWidth}
       height={150}

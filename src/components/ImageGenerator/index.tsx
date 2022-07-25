@@ -1,25 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
-import styled from 'styled-components';
+
+// Import components
+import Figure from '../Figure';
 
 // Import hepler
 import makeUrl from './helper';
-
-const StyledFigure = styled.figure`
-  position: relative;
-`;
-
-const StyledFigcaption = styled.figcaption`
-  position: absolute;
-  bottom: 4px;
-  left: 0;
-  width: 100%;
-  padding: 4px;
-  background-color: rgba(0, 0, 0, 0.4);
-  color: #fff;
-  font-size: 12px;
-  text-transform: capitalize;
-`;
 
 export type Blur = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 export type FileExtension = 'jpg' | 'webp';
@@ -78,7 +64,7 @@ const ImageGenerator = (props: ImageGeneratorProps) => {
   } = props;
 
   return (
-    <StyledFigure>
+    <Figure title={title}>
       <Image
         src={makeUrl({
           id,
@@ -94,8 +80,7 @@ const ImageGenerator = (props: ImageGeneratorProps) => {
         height={height}
         priority
       />
-      <StyledFigcaption>{title}</StyledFigcaption>
-    </StyledFigure>
+    </Figure>
   );
 };
 
