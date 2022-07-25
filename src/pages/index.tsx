@@ -21,6 +21,8 @@ const Container = styled.section`
   justify-context: center;
   flex-direction: column;
   padding: 50px;
+  justify-content: center;
+  min-height: calc(100vh - 230px);
 `;
 
 const Header = styled.h2`
