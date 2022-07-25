@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import Image from 'next/image';
 
 // Import components
@@ -84,4 +84,10 @@ const ImageGenerator = (props: ImageGeneratorProps) => {
   );
 };
 
-export default ImageGenerator;
+function areEqual(prevProps, nextProps) {
+  return (
+    prevProps.width === nextProps.width && prevProps.height === nextProps.height
+  );
+}
+
+export default memo(ImageGenerator, areEqual);
