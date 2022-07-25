@@ -1,13 +1,10 @@
-import { Key, Fetcher } from 'swr';
-import { Album, Photo, User } from '../types';
+export const domain = 'http://jsonplaceholder.typicode.com';
 
-const domain = 'http://jsonplaceholder.typicode.com';
-
-export const getUsers: Fetcher<User[]> = () =>
+export const getUsers = () =>
   fetch(`${domain}/users`).then((res) => res.json());
 
-export const getAlbumByUserId: Fetcher<Album[]> = (id: Key) =>
+export const getAlbumByUserId = (id) =>
   fetch(`${domain}/users/${id}/albums`).then((res) => res.json());
 
-export const getPhotosByAlbumId: Fetcher<Photo[]> = (id: Key) =>
+export const getPhotosByAlbumId = (id) =>
   fetch(`${domain}/albums/${id}/photos`).then((res) => res.json());
