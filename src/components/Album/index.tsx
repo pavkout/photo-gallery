@@ -24,6 +24,15 @@ const StyledStackGrid = styled(StackGrid)`
   width: 90%;
 `;
 
+const Emptycontainer = styled.div`
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #757171;
+`;
+
 type Props = {
   photos: Photo[];
 };
@@ -41,17 +50,34 @@ const Album = ({ photos = [] }: Props) => {
 
   useEffect(() => {
     if (
-      (state.gutters !== prevState?.gutters ||
-        state.columnWidth !== prevState?.columnWidth ||
-        state.isRandomSize !== prevState?.isRandomSize ||
-        state.isRealImages !== prevState?.isRealImages ||
-        state.searchingValue !== prevState?.searchingValue) &&
+      (gutters !== prevState?.gutters ||
+        columnWidth !== prevState?.columnWidth ||
+        isRandomSize !== prevState?.isRandomSize ||
+        isRealImages !== prevState?.isRealImages ||
+        searchingValue !== prevState?.searchingValue) &&
       grid &&
       grid.current
     ) {
       grid.current.updateLayout();
     }
-  }, [state, prevState]);
+  }, [
+    gutters,
+    columnWidth,
+    isRandomSize,
+    isRealImages,
+    searchingValue,
+    prevState,
+  ]);
+
+  const displayedPhotos = getFilteredPhotos(searchingValue, photos);
+
+  if (displayedPhotos.length === 0) {
+    return (
+      <Emptycontainer>
+        <span>Τhere are no results.</span>
+      </Emptycontainer>
+    );
+  }
 
   return (
     <StyledStackGrid
@@ -68,7 +94,7 @@ const Album = ({ photos = [] }: Props) => {
       duration={480}
       easing={quartOut}
     >
-      {getFilteredPhotos(searchingValue, photos).map((photo: Photo) => (
+      {displayedPhotos.map((photo: Photo) => (
         <PhotoImage key={photo.id} photo={photo} />
       ))}
     </StyledStackGrid>
