@@ -42,7 +42,14 @@ const PhotoImage = ({ photo: { thumbnailUrl, title } }: Props) => {
     );
   }
 
-  return <img alt={thumbnailUrl} src={thumbnailUrl} width={150} height={150} />;
+  return (
+    <img
+      alt={thumbnailUrl}
+      src={thumbnailUrl}
+      width={columnWidth}
+      height={150}
+    />
+  );
 };
 
 export default PhotoImage;

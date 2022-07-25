@@ -6,7 +6,6 @@ import {
   OPEN_SETTINGS,
   CLOSE_SETTINGS,
   INIT_STATE,
-  CHANGE_ORIENTATION,
   CHANGE_GUTTERS,
   CHANGE_COLUMN_WIDTH,
   CHANGE_RANDOM_SIZE,
@@ -23,11 +22,6 @@ const Reducer = (state: IState = initialState, action: ActionType): any => {
         columnWidth: isRealImages ? 250 : 150,
       };
     }
-    case CHANGE_ORIENTATION:
-      return {
-        ...state,
-        isHorizontal: !state.isHorizontal,
-      };
     case CHANGE_RANDOM_SIZE:
       return {
         ...state,

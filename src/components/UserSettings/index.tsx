@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 // Import components
 import ToggleSwitch from '../ToggleSwitch';
+import SliderInput from '../SliderInput';
 
 // Import store
 import { useAppContext } from '../../state/store';
@@ -11,14 +12,12 @@ import {
   changeColumnWidth,
   changeGutters,
   changeImageType,
-  changeOrientation,
   changeRandomSize,
   closeSettings,
 } from '../../state/actions';
 
 //import styles 👇
 import 'react-modern-drawer/dist/index.css';
-import SliderInput from '../SliderInput';
 
 const StyledDrawer = styled(Drawer)`
   padding: 5px;
@@ -47,14 +46,8 @@ const UserSettings = () => {
   const { state, dispatch } = useAppContext();
 
   // Destract needed state values
-  const {
-    isSettingsOpen,
-    isRealImages,
-    isHorizontal,
-    gutters,
-    columnWidth,
-    isRandomSize,
-  } = state;
+  const { isSettingsOpen, isRealImages, gutters, columnWidth, isRandomSize } =
+    state;
 
   const toggleDrawer = () => {
     dispatch(closeSettings());
@@ -62,10 +55,6 @@ const UserSettings = () => {
 
   const toggleImageType = () => {
     dispatch(changeImageType());
-  };
-
-  const toggleOrientation = () => {
-    dispatch(changeOrientation());
   };
 
   const handleChangeGutters = (gutters: number | string) => {
@@ -98,22 +87,16 @@ const UserSettings = () => {
           onChange={toggleImageType}
         />
       </SettingOption>
-      <SettingOption>
-        <Title>Orientation</Title>
-        <ToggleSwitch
-          checked={isHorizontal}
-          label='Use horizontal orientation'
-          onChange={toggleOrientation}
-        />
-      </SettingOption>
-      <SettingOption>
-        <Title>Image size</Title>
-        <ToggleSwitch
-          checked={isRandomSize}
-          label='Use random image size'
-          onChange={handleChangeRandomSize}
-        />
-      </SettingOption>
+      {isRealImages && (
+        <SettingOption>
+          <Title>Image Height</Title>
+          <ToggleSwitch
+            checked={isRandomSize}
+            label='Use random image height'
+            onChange={handleChangeRandomSize}
+          />
+        </SettingOption>
+      )}
       <SettingOption>
         <Title>Gutters</Title>
         <SliderInput value={gutters} onChange={handleChangeGutters} />

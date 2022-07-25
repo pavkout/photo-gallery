@@ -32,7 +32,7 @@ const Album = ({ photos }: Props) => {
   const prevState = usePrevious(state);
 
   // Destract needed state values
-  const { isHorizontal, gutters, columnWidth, isRandomSize } = state;
+  const { gutters, columnWidth, isRandomSize } = state;
 
   useEffect(() => {
     if (state !== prevState && grid && grid.current) {
@@ -51,7 +51,6 @@ const Album = ({ photos }: Props) => {
       leaved={scaleDown.leaved}
       gutterWidth={gutters}
       gutterHeight={gutters}
-      horizontal={isHorizontal}
       monitorImagesLoaded={isRandomSize}
     >
       {photos.map((photo: Photo) => (

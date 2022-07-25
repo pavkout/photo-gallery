@@ -105,7 +105,6 @@ export type PhotoResponse = Photo;
 export interface IState {
   isSettingsOpen: boolean;
   isRealImages: boolean;
-  isHorizontal: boolean;
   gutters: number;
   columnWidth: number;
   isRandomSize: boolean;

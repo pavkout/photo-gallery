@@ -4,7 +4,6 @@ import {
   OPEN_SETTINGS,
   CLOSE_SETTINGS,
   INIT_STATE,
-  CHANGE_ORIENTATION,
   CHANGE_GUTTERS,
   CHANGE_COLUMN_WIDTH,
   CHANGE_RANDOM_SIZE,
@@ -12,10 +11,6 @@ import {
 
 export const changeImageType = () => ({
   type: CHANGE_IMAGE_TYPE,
-});
-
-export const changeOrientation = () => ({
-  type: CHANGE_ORIENTATION,
 });
 
 export const changeRandomSize = () => ({
