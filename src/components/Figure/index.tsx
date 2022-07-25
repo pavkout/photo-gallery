@@ -20,7 +20,7 @@ const StyledFigcaption = styled.figcaption`
   padding: 4px;
   background-color: rgba(0, 0, 0, 0.4);
   color: #fff;
-  font-size: 12px;
+  font-size: 14px;
   text-transform: capitalize;
 `;
 
