@@ -10,10 +10,6 @@ import { User } from '../types';
 // Import API
 import { getUsers } from '../utils/api';
 
-type Props = {
-  users: User[];
-};
-
 const Container = styled.section`
   width: 100%;
   display: flex;
@@ -34,6 +30,10 @@ const Desc = styled.span`
   color: #a0a0a0;
   padding-top: 10px;
 `;
+
+type Props = {
+  users?: User[];
+};
 
 const HomePage: NextPage<Props> = ({ users = [] }) => {
   return (
