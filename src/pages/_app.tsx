@@ -1,18 +1,23 @@
 import type { AppProps } from 'next/app';
-import Head from 'next/head';
 
+// Import components
 import Layout from '../components/Layout';
+import CustomHead from '../components/Head';
+
+// Import styles
 import GlobalStyles from '../globalStyles';
 
-const AlbumApp = ({ Component, pageProps }: AppProps): JSX.Element => (
-  <Layout>
-    <Head>
-      <title>Pavlos Koutoglou</title>
-      <link rel='icon' href='/favicon.ico' />
-    </Head>
-    <Component {...pageProps} />
-    <GlobalStyles />
-  </Layout>
+// Import store
+import { Store } from '../state/store';
+
+const App = ({ Component, pageProps }: AppProps): JSX.Element => (
+  <Store>
+    <Layout>
+      <CustomHead />
+      <Component {...pageProps} />
+      <GlobalStyles />
+    </Layout>
+  </Store>
 );
 
-export default AlbumApp;
+export default App;
