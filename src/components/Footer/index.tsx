@@ -6,7 +6,14 @@ const StyledFooter = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(45deg, #ff0081, #6827b0);
+  background-image: linear-gradient(
+    to right top,
+    #78909c,
+    #627781,
+    #4d5f68,
+    #39484f,
+    #263238
+  );
   color: #fff;
 `;
 
