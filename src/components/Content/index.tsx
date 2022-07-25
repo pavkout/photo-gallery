@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const StyledContent = styled.section`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: stretch;
   min-height: calc(100vh - 230px);
   width: 100%;

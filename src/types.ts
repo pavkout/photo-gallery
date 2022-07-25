@@ -108,6 +108,7 @@ export interface IState {
   gutters: number;
   columnWidth: number;
   isRandomSize: boolean;
+  searchingValue: string;
 }
 
 export type ActionType = {
