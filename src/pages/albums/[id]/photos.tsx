@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 // Import components
 import Album from '../../../components/Album';
+import SearchInput from '../../../components/SearchInput';
 
 // Import types
 import type { Photo } from '../../../types';
@@ -32,14 +33,13 @@ type Props = {
   photos: Photo[];
 };
 
-const PhotosPage: NextPage<Props> = ({ photos = [] }) => {
-  return (
-    <Wrapper>
-      <StyledTitle>Photos</StyledTitle>
-      <Album photos={photos} />
-    </Wrapper>
-  );
-};
+const PhotosPage: NextPage<Props> = ({ photos = [] }) => (
+  <Wrapper>
+    <StyledTitle>Photos</StyledTitle>
+    <SearchInput />
+    <Album photos={photos} />
+  </Wrapper>
+);
 
 export default PhotosPage;
 
