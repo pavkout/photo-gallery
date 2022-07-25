@@ -42,7 +42,7 @@ const findCustomChunks = ({ searchWords, textToHighlight }) => {
 
     // Do it for every single text word
     singleTextWordsWithPos.forEach((s: Chunk) => {
-      if (s.word.startsWith(swLow)) {
+      if (s.word.includes(swLow)) {
         const start = s.index;
         const end = s.index + s.word.length;
         chunks.push({
@@ -51,17 +51,6 @@ const findCustomChunks = ({ searchWords, textToHighlight }) => {
         });
       }
     });
-
-    // The complete word including whitespace should also be handled, e.g.
-    // searchWord='Angela Mer' should be highlighted in 'Angela Merkel'
-    if (textLow.startsWith(swLow)) {
-      const start = 0;
-      const end = swLow.length;
-      chunks.push({
-        start,
-        end,
-      });
-    }
   });
 
   return chunks;
