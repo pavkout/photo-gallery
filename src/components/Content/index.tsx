@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
 const StyledContent = styled.section`
-  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+  min-height: calc(100vh - 230px);
+  width: 100%;
 `;
 
 type Props = {
