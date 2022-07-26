@@ -2,32 +2,16 @@ import { ActionType, IState } from '../types';
 import { initialState } from './initialState';
 
 import {
-  CHANGE_IMAGE_TYPE,
   OPEN_SETTINGS,
   CLOSE_SETTINGS,
   INIT_STATE,
   CHANGE_GUTTERS,
   CHANGE_COLUMN_WIDTH,
-  CHANGE_RANDOM_SIZE,
   CHANGE_SEARCHING_VALUE,
 } from './types';
 
 const Reducer = (state: IState = initialState, action: ActionType): any => {
   switch (action.type) {
-    case CHANGE_IMAGE_TYPE: {
-      const isRealImages = !state.isRealImages;
-
-      return {
-        ...state,
-        isRealImages: isRealImages,
-        columnWidth: isRealImages ? 250 : 150,
-      };
-    }
-    case CHANGE_RANDOM_SIZE:
-      return {
-        ...state,
-        isRandomSize: !state.isRandomSize,
-      };
     case CHANGE_GUTTERS:
       return {
         ...state,

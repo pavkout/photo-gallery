@@ -63,10 +63,8 @@ export type Photo = {
 
 export interface IState {
   isSettingsOpen: boolean;
-  isRealImages: boolean;
   gutters: number;
   columnWidth: number;
-  isRandomSize: boolean;
   searchingValue: string;
 }
 

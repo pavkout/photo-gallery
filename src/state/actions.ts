@@ -1,22 +1,12 @@
 import { IState } from '../types';
 import {
-  CHANGE_IMAGE_TYPE,
   OPEN_SETTINGS,
   CLOSE_SETTINGS,
   INIT_STATE,
   CHANGE_GUTTERS,
   CHANGE_COLUMN_WIDTH,
-  CHANGE_RANDOM_SIZE,
   CHANGE_SEARCHING_VALUE,
 } from './types';
-
-export const changeImageType = () => ({
-  type: CHANGE_IMAGE_TYPE,
-});
-
-export const changeRandomSize = () => ({
-  type: CHANGE_RANDOM_SIZE,
-});
 
 export const openSettings = () => ({
   type: OPEN_SETTINGS,

@@ -2,23 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 // Import components
-import ImageGenerator from '../ImageGenerator';
 import StaticImage from '../StaticImage';
 
 // Import types
 import { Photo } from '../../types';
 
-// Import utils
-import { generateRandom } from '../../utils/random';
-
 // Import store
 import { useAppContext } from '../../state/store';
-
-const StyledImageGenerator = styled(ImageGenerator)`
-  border-radius: 10px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-`;
 
 const StyledStaticImage = styled(StaticImage)`
   border-radius: 10px;
@@ -35,25 +25,24 @@ const PhotoImage = ({ photo: { thumbnailUrl, title } }: Props) => {
   const { state } = useAppContext();
 
   // Destract needed state values
-  const { isRealImages, columnWidth, isRandomSize } = state;
+  const { columnWidth } = state;
 
-  if (isRealImages) {
-    return (
-      <StyledImageGenerator
-        title={title}
-        width={columnWidth}
-        height={isRandomSize ? generateRandom(100, 500, 40) : columnWidth}
-        random={true}
-      />
-    );
+  // Init the url with the thumbnailUrl from image.
+  let url = thumbnailUrl;
+
+  // In case user change the column width when create a new url based on this width.
+  if (columnWidth !== 150) {
+    const urlArr = thumbnailUrl.split('/');
+    urlArr[3] = columnWidth.toString();
+    url = urlArr.join('/');
   }
 
   return (
     <StyledStaticImage
       title={title}
-      src={thumbnailUrl}
+      src={url}
       width={columnWidth}
-      height={150}
+      height={columnWidth}
     />
   );
 };

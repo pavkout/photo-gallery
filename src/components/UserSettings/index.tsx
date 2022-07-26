@@ -11,8 +11,6 @@ import { useAppContext } from '../../state/store';
 import {
   changeColumnWidth,
   changeGutters,
-  changeImageType,
-  changeRandomSize,
   closeSettings,
 } from '../../state/actions';
 
@@ -46,26 +44,21 @@ const UserSettings = () => {
   const { state, dispatch } = useAppContext();
 
   // Destract needed state values
-  const { isSettingsOpen, isRealImages, gutters, columnWidth, isRandomSize } =
-    state;
+  const { isSettingsOpen, gutters, columnWidth } = state;
 
+  // This function fires when user click anywhere outside the drawer
   const toggleDrawer = () => {
     dispatch(closeSettings());
   };
 
-  const toggleImageType = () => {
-    dispatch(changeImageType());
-  };
-
+  // This function fires when user change the gutters
   const handleChangeGutters = (gutters: number | string) => {
     dispatch(changeGutters(gutters));
   };
 
+  // This function fires when user change the column width
   const handleColumnWidth = (columnWidth: number | string) => {
     dispatch(changeColumnWidth(columnWidth));
-  };
-  const handleChangeRandomSize = () => {
-    dispatch(changeRandomSize());
   };
 
   return (
@@ -79,24 +72,6 @@ const UserSettings = () => {
       <Header>
         <HeaderTitle>Settigns</HeaderTitle>
       </Header>
-      <SettingOption>
-        <Title>Image Type</Title>
-        <ToggleSwitch
-          checked={isRealImages}
-          label='Use real images'
-          onChange={toggleImageType}
-        />
-      </SettingOption>
-      {isRealImages && (
-        <SettingOption>
-          <Title>Image Height</Title>
-          <ToggleSwitch
-            checked={isRandomSize}
-            label='Use random image height'
-            onChange={handleChangeRandomSize}
-          />
-        </SettingOption>
-      )}
       <SettingOption>
         <Title>Gutters</Title>
         <SliderInput value={gutters} onChange={handleChangeGutters} />

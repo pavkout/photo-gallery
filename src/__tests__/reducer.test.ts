@@ -11,8 +11,6 @@ import test, {
 import {
   changeColumnWidth,
   changeGutters,
-  changeImageType,
-  changeRandomSize,
   changeSearchingValue,
   closeSettings,
   initState,
@@ -22,27 +20,6 @@ import {
 describe('Album Reducer', () => {
   // Test the reucer on unknown action
   test(reducer).withCurrentState(initialState).run();
-
-  // Test the CHANGE_IMAGE_TYPE action
-  test(reducer)
-    .onAction(changeImageType())
-    .withCurrentState(initialState)
-    .withDesiredState({
-      ...initialState,
-      isRealImages: !initialState.isRealImages,
-      columnWidth: !initialState.isRealImages ? 250 : 150,
-    })
-    .run();
-
-  // Test the CHANGE_RANDOM_SIZE Action
-  test(reducer)
-    .onAction(changeRandomSize())
-    .withCurrentState(testState)
-    .withDesiredState({
-      ...testState,
-      isRandomSize: !testState.isRandomSize,
-    })
-    .run();
 
   // Test the OPEN_SETTINGS Action
   test(reducer)

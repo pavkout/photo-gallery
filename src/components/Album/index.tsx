@@ -45,29 +45,20 @@ const Album = ({ photos = [] }: Props) => {
   const prevState = usePrevious(state);
 
   // Destract needed state values
-  const { gutters, columnWidth, isRandomSize, isRealImages, searchingValue } =
-    state;
+  const { gutters, columnWidth, searchingValue } = state;
 
   useEffect(() => {
     if (
       (gutters !== prevState?.gutters ||
         columnWidth !== prevState?.columnWidth ||
-        isRandomSize !== prevState?.isRandomSize ||
-        isRealImages !== prevState?.isRealImages ||
         searchingValue !== prevState?.searchingValue) &&
       grid &&
       grid.current
     ) {
+      // @ts-ignore
       grid.current.updateLayout();
     }
-  }, [
-    gutters,
-    columnWidth,
-    isRandomSize,
-    isRealImages,
-    searchingValue,
-    prevState,
-  ]);
+  }, [gutters, columnWidth, searchingValue, prevState]);
 
   const displayedPhotos = getFilteredPhotos(searchingValue, photos);
 
@@ -90,7 +81,7 @@ const Album = ({ photos = [] }: Props) => {
       leaved={scaleDown.leaved}
       gutterWidth={gutters}
       gutterHeight={gutters}
-      monitorImagesLoaded={isRandomSize}
+      monitorImagesLoaded={true}
       duration={480}
       easing={quartOut}
     >

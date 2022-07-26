@@ -14,16 +14,12 @@ import { ActionType, IState } from '../types';
  *   })
  *   .withCurrentState({
  *     isSettingsOpen: false,
- *     isRealImages: false,
- *     isRandomSize: false,
  *     gutters: 15,
  *     columnWidth: 150,
  *     earchingValue: '',
  *   })
  *   .withDesiredState({
  *     isSettingsOpen: false,
- *     isRealImages: false,
- *     isRandomSize: false,
  *     gutters: 15,
  *     columnWidth: 150,
  *     earchingValue: test,
@@ -115,8 +111,6 @@ const testGutters = 20;
 // Create a test state for test.
 const testState: IState = Object.freeze({
   isSettingsOpen: false,
-  isRealImages: false,
-  isRandomSize: false,
   gutters: 15,
   columnWidth: 150,
   searchingValue: '',
