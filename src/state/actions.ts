@@ -1,5 +1,6 @@
 import { IState } from '../types';
 import {
+  CHANGE_CUSTOM_SIZE,
   OPEN_SETTINGS,
   CLOSE_SETTINGS,
   INIT_STATE,
@@ -7,6 +8,10 @@ import {
   CHANGE_COLUMN_WIDTH,
   CHANGE_SEARCHING_VALUE,
 } from './types';
+
+export const changeCustomSize = () => ({
+  type: CHANGE_CUSTOM_SIZE,
+});
 
 export const openSettings = () => ({
   type: OPEN_SETTINGS,

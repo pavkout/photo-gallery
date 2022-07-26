@@ -10,6 +10,7 @@ import SliderInput from '../SliderInput';
 import { useAppContext } from '../../state/store';
 import {
   changeColumnWidth,
+  changeCustomSize,
   changeGutters,
   closeSettings,
 } from '../../state/actions';
@@ -44,11 +45,16 @@ const UserSettings = () => {
   const { state, dispatch } = useAppContext();
 
   // Destract needed state values
-  const { isSettingsOpen, gutters, columnWidth } = state;
+  const { isSettingsOpen, gutters, columnWidth, useCustomSize } = state;
 
   // This function fires when user click anywhere outside the drawer
   const toggleDrawer = () => {
     dispatch(closeSettings());
+  };
+
+  // This function fires when user click anywhere outside the drawer
+  const toggleCustomSize = () => {
+    dispatch(changeCustomSize());
   };
 
   // This function fires when user change the gutters
@@ -73,17 +79,27 @@ const UserSettings = () => {
         <HeaderTitle>Settigns</HeaderTitle>
       </Header>
       <SettingOption>
+        <Title>Custom Size</Title>
+        <ToggleSwitch
+          checked={useCustomSize}
+          label='Use custom size'
+          onChange={toggleCustomSize}
+        />
+      </SettingOption>
+      {useCustomSize && (
+        <SettingOption>
+          <Title>Column width</Title>
+          <SliderInput
+            value={columnWidth}
+            min={100}
+            max={600}
+            onChange={handleColumnWidth}
+          />
+        </SettingOption>
+      )}
+      <SettingOption>
         <Title>Gutters</Title>
         <SliderInput value={gutters} onChange={handleChangeGutters} />
-      </SettingOption>
-      <SettingOption>
-        <Title>Column width</Title>
-        <SliderInput
-          value={columnWidth}
-          min={100}
-          max={600}
-          onChange={handleColumnWidth}
-        />
       </SettingOption>
     </StyledDrawer>
   );

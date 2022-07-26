@@ -2,6 +2,7 @@ import { ActionType, IState } from '../types';
 import { initialState } from './initialState';
 
 import {
+  CHANGE_CUSTOM_SIZE,
   OPEN_SETTINGS,
   CLOSE_SETTINGS,
   INIT_STATE,
@@ -12,6 +13,14 @@ import {
 
 const Reducer = (state: IState = initialState, action: ActionType): any => {
   switch (action.type) {
+    case CHANGE_CUSTOM_SIZE: {
+      const savedValue = !state.useCustomSize;
+      return {
+        ...state,
+        useCustomSize: savedValue,
+        columnWidth: !savedValue ? 150 : state.columnWidth,
+      };
+    }
     case CHANGE_GUTTERS:
       return {
         ...state,

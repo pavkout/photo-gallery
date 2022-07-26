@@ -1,3 +1,4 @@
+export const CHANGE_CUSTOM_SIZE = 'CHANGE_CUSTOM_SIZE';
 export const OPEN_SETTINGS = 'OPEN_SETTINGS';
 export const CLOSE_SETTINGS = 'CLOSE_SETTINGS';
 export const INIT_STATE = 'INIT_STATE';
