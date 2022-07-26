@@ -202,11 +202,11 @@ const Custom404 = () => {
             <Paper>
               <Face>
                 <Eyes>
-                  <Eye className='left' />
-                  <Eye className='right' />
+                  <Eye className="left" />
+                  <Eye className="right" />
                 </Eyes>
-                <RosyCheeks className='left' />
-                <RosyCheeks className='right' />
+                <RosyCheeks className="left" />
+                <RosyCheeks className="right" />
                 <Mouth />
               </Face>
             </Paper>
@@ -215,9 +215,9 @@ const Custom404 = () => {
         <Number>4</Number>
       </Error>
 
-      <Text>Oops. The page you're looking for doesn't exist.</Text>
+      <Text>{"Oops. The page you're looking for doesn't exist."}</Text>
       <Button>
-        <StyledLink href='/'>
+        <StyledLink href="/">
           <LinkText>Back Home</LinkText>
         </StyledLink>
       </Button>
