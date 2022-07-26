@@ -10,6 +10,7 @@ import test, {
 
 import {
   changeColumnWidth,
+  changeCustomSize,
   changeGutters,
   changeSearchingValue,
   closeSettings,
@@ -20,6 +21,17 @@ import {
 describe('Album Reducer', () => {
   // Test the reucer on unknown action
   test(reducer).withCurrentState(initialState).run();
+
+  // Test the CHANGE_CUSTOM_SIZE Action
+  test(reducer)
+    .onAction(changeCustomSize())
+    .withCurrentState(testState)
+    .withDesiredState({
+      ...testState,
+      useCustomSize: true,
+      columnWidth: 150,
+    })
+    .run();
 
   // Test the OPEN_SETTINGS Action
   test(reducer)

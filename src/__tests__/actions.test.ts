@@ -1,8 +1,7 @@
 import {
   changeColumnWidth,
+  changeCustomSize,
   changeGutters,
-  changeImageType,
-  changeRandomSize,
   changeSearchingValue,
   closeSettings,
   initState,
@@ -10,9 +9,8 @@ import {
 } from '../state/actions';
 import {
   CHANGE_COLUMN_WIDTH,
+  CHANGE_CUSTOM_SIZE,
   CHANGE_GUTTERS,
-  CHANGE_IMAGE_TYPE,
-  CHANGE_RANDOM_SIZE,
   CHANGE_SEARCHING_VALUE,
   CLOSE_SETTINGS,
   INIT_STATE,
@@ -29,14 +27,9 @@ import {
 let action;
 
 describe('Album Reducer', () => {
-  it('changeImageType has the correct type', () => {
-    action = changeImageType();
-    expect(action.type).toEqual(CHANGE_IMAGE_TYPE);
-  });
-
-  it('changeRandomSize the correct type', () => {
-    action = changeRandomSize();
-    expect(action.type).toEqual(CHANGE_RANDOM_SIZE);
+  it('changeCustomSize has the correct type', () => {
+    action = changeCustomSize();
+    expect(action.type).toEqual(CHANGE_CUSTOM_SIZE);
   });
 
   it('openSettings has the correct type', () => {

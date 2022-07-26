@@ -111,6 +111,7 @@ const testGutters = 20;
 // Create a test state for test.
 const testState: IState = Object.freeze({
   isSettingsOpen: false,
+  useCustomSize: false,
   gutters: 15,
   columnWidth: 150,
   searchingValue: '',
