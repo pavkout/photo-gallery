@@ -20,6 +20,10 @@ const Wrapper = styled.div`
   height: 2rem;
   border-radius: 10rem;
   margin-top: 2rem;
+
+  @media (max-width: 600px) {
+    width: 80%;
+  }
 `;
 
 const Input = styled.input`
@@ -72,7 +76,7 @@ const SearchInput = () => {
       <Input
         onChange={handleValueChange}
         value={searchingValue}
-        placeholder='Search for a photo...'
+        placeholder="Search for a photo..."
       />
     </Wrapper>
   );

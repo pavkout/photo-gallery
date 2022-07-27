@@ -2,7 +2,7 @@ import { GetServerSideProps, NextPage } from 'next';
 import styled from 'styled-components';
 
 // Import components
-import AccountSwitch from '../components/AccountSwitcher';
+import AccountSwitcher from '../components/AccountSwitcher';
 
 // Import types
 import { User } from '../types';
@@ -40,7 +40,7 @@ const HomePage: NextPage<Props> = ({ users = [] }) => {
     <Container>
       <Header>Welcome to TheLook</Header>
       <Desc>Please select an account to discover user photos.</Desc>
-      <AccountSwitch accounts={users} />
+      <AccountSwitcher accounts={users} />
     </Container>
   );
 };

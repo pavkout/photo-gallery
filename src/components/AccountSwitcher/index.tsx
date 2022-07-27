@@ -13,9 +13,16 @@ import { User } from '../../types';
 // Import constants
 import { accountColors } from '../../constants';
 
+// Import hooks
+import { Size, useWindowSize } from '../../hooks/useWindowSize';
+
 const Wrapper = styled.div`
   width: 600px;
   height: 500px;
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 `;
 
 const Slide = styled.div`
@@ -59,7 +66,7 @@ const StyledNextArrow = styled.div`
 
 const NextArrow = ({ onClick }) => {
   return (
-    <StyledNextArrow role='button' onClick={onClick}>
+    <StyledNextArrow role="button" onClick={onClick}>
       <FontAwesomeIcon
         icon={faAngleRight}
         style={{ height: '100%', width: 'auto', color: '#4b4b4b' }}
@@ -70,7 +77,7 @@ const NextArrow = ({ onClick }) => {
 
 const PrevArrow = ({ onClick }) => {
   return (
-    <StyledPrevArrow role='button' onClick={onClick}>
+    <StyledPrevArrow role="button" onClick={onClick}>
       <FontAwesomeIcon
         icon={faAngleLeft}
         style={{ height: '100%', width: 'auto', color: '#4b4b4b' }}
@@ -83,9 +90,11 @@ type Props = {
   accounts: User[];
 };
 
-const AccountSwitch = ({ accounts }: Props) => {
+const AccountSwitcher = ({ accounts }: Props) => {
   // Create flag to store the active slide.
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const size: Size = useWindowSize();
 
   // This function fires when user click on the prev button.
   const handlePrevClick = () => {
@@ -102,7 +111,7 @@ const AccountSwitch = ({ accounts }: Props) => {
     infinite: true,
     lazyLoad: true,
     speed: 300,
-    slidesToShow: 3,
+    slidesToShow: size.width <= 600 ? 1 : 3,
     centerMode: true,
     centerPadding: 0,
     nextArrow: <NextArrow onClick={handleNextClick} />,
@@ -127,4 +136,4 @@ const AccountSwitch = ({ accounts }: Props) => {
   );
 };
 
-export default AccountSwitch;
+export default AccountSwitcher;

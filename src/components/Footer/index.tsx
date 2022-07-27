@@ -15,15 +15,23 @@ const StyledFooter = styled.footer`
     #263238
   );
   color: #fff;
+
+  @media (max-width: 600px) {
+    font-size: 12px;
+  }
+`;
+
+const StyledText = styled.span`
+  text-align: center;
 `;
 
 const Footer = () => {
   return (
     <StyledFooter>
-      <span>
+      <StyledText>
         © {new Date().getFullYear()} League, Inc. All rights reserved. Design By
         - <b>Pavlos Koutoglou</b>
-      </span>
+      </StyledText>
     </StyledFooter>
   );
 };

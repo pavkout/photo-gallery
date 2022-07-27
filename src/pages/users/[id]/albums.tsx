@@ -21,13 +21,14 @@ const Wrapper = styled.div`
 
 const Albums = styled.div`
   display: flex;
-  flex-direction: column;
+
   min-height: calc(100vh - 310px);
   width: 100%;
   padding-top: 20px;
   flex-direction: row;
 
-  @media screen and (min-width: 1000px) {
+  @media (max-width: 600px) {
+    flex-direction: column;
   }
 `;
 
@@ -43,8 +44,15 @@ const AlbumTitle = styled.span`
   user-select: none;
   color: ${(props) => props.color};
 
-  @media screen and (min-width: 1000px) {
-    // transform: translate(-50%, -50%);
+  @media (max-width: 600px) {
+    transform: none;
+    left: unset;
+    top: unset;
+    position: relative;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 `;
 
@@ -52,6 +60,7 @@ const StyledAlbum = styled.div`
   flex: 1;
   position: relative;
   transition: 0.5s ease;
+  overflow: hidden;
   background-color: ${(props) => props.bg};
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
@@ -61,6 +70,13 @@ const StyledAlbum = styled.div`
   &:focus {
     flex: 1.1;
     cursor: pointer;
+  }
+
+  @media (max-width: 600px) {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 10px;
   }
 `;
 
