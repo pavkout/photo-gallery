@@ -29,8 +29,8 @@ const Footer = () => {
   return (
     <StyledFooter>
       <StyledText>
-        © {new Date().getFullYear()} League, Inc. All rights reserved. Design By
-        - <b>Pavlos Koutoglou</b>
+        © {new Date().getFullYear()} Pavlos Koutoglou. All rights reserved.
+        Design By - <b>Pavlos Koutoglou</b>
       </StyledText>
     </StyledFooter>
   );
